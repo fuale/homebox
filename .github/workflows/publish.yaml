@@ -20,7 +20,7 @@ jobs:
   publish-nightly:
     name: "Publish Nightly"
     if: github.event_name != 'release'
-    uses: ./.github/workflows/partial-publish.yaml@main
+    uses: ./.github/workflows/partial-publish.yaml
     with:
       tag: nightly
     secrets:
