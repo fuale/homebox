@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="p-4 border-2 root">
+  <div class="p-4 root">
     <LocationTreeNode v-for="item in locs" :key="item.id" :item="item" :tree-id="treeId" />
   </div>
 </template>

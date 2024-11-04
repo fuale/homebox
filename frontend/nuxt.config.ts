@@ -3,14 +3,23 @@ import { defineNuxtConfig } from "nuxt/config";
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: false,
+
   modules: [
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
     "@pinia/nuxt",
     "@vueuse/nuxt",
     "@vite-pwa/nuxt",
     "./nuxt.proxyoverride.ts",
     "unplugin-icons/nuxt",
   ],
+
+  i18n: {
+    locales: ["en", "ru"],
+    defaultLocale: "ru",
+    vueI18n: './i18n.config.ts'
+  },
+
   nitro: {
     devProxy: {
       "/api": {
@@ -20,7 +29,9 @@ export default defineNuxtConfig({
       },
     },
   },
+
   css: ["@/assets/css/main.css"],
+
   pwa: {
     workbox: {
       navigateFallbackDenylist: [/^\/api/],
@@ -59,4 +70,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: "2024-11-04",
 });

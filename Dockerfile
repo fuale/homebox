@@ -1,7 +1,7 @@
 
 # Build Nuxt
-FROM node:18-alpine as frontend-builder
-WORKDIR  /app
+FROM node:23-bookworm-slim as frontend-builder
+WORKDIR /app
 RUN npm install -g pnpm
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --shamefully-hoist
@@ -9,7 +9,7 @@ COPY frontend .
 RUN pnpm build
 
 # Build API
-FROM golang:alpine AS builder
+FROM golang:1.22-alpine AS builder
 ARG BUILD_TIME
 ARG COMMIT
 ARG VERSION
@@ -41,7 +41,7 @@ COPY --from=builder /go/bin/api /app
 RUN chmod +x /app/api
 
 LABEL Name=homebox Version=0.0.1
-LABEL org.opencontainers.image.source="https://github.com/hay-kot/homebox"
+LABEL org.opencontainers.image.source="https://github.com/fuale/homebox"
 EXPOSE 7745
 WORKDIR /app
 VOLUME [ "/data" ]

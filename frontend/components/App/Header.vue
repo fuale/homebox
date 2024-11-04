@@ -1,60 +1,60 @@
 <script lang="ts" setup>
-  import MdiPlus from "~icons/mdi/plus";
+import MdiPlus from "~icons/mdi/plus"
 
-  const ctx = useAuthContext();
-  const api = useUserApi();
+const ctx = useAuthContext()
+const api = useUserApi()
 
-  async function logout() {
-    const { error } = await ctx.logout(api);
-    if (error) {
-      return;
-    }
-
-    navigateTo("/");
+async function logout() {
+  const { error } = await ctx.logout(api)
+  if (error) {
+    return
   }
 
-  const links = [
-    {
-      name: "Home",
-      href: "/home",
-    },
-    {
-      name: "Items",
-      href: "/items",
-    },
-    {
-      name: "Logout",
-      action: logout,
-      last: true,
-    },
-  ];
+  navigateTo("/")
+}
 
-  const modals = reactive({
-    item: false,
-    location: false,
-    label: false,
-  });
+const links = [
+  {
+    name: "Home",
+    href: "/home",
+  },
+  {
+    name: "Items",
+    href: "/items",
+  },
+  {
+    name: "Logout",
+    action: logout,
+    last: true,
+  },
+]
 
-  const dropdown = [
-    {
-      name: "Item / Asset",
-      action: () => {
-        modals.item = true;
-      },
+const modals = reactive({
+  item: false,
+  location: false,
+  label: false,
+})
+
+const dropdown = [
+  {
+    name: "Item / Asset",
+    action: () => {
+      modals.item = true
     },
-    {
-      name: "Location",
-      action: () => {
-        modals.location = true;
-      },
+  },
+  {
+    name: "Location",
+    action: () => {
+      modals.location = true
     },
-    {
-      name: "Label",
-      action: () => {
-        modals.label = true;
-      },
+  },
+  {
+    name: "Label",
+    action: () => {
+      modals.label = true
     },
-  ];
+  },
+]
 </script>
 
 <template>
@@ -68,12 +68,16 @@
   <LabelCreateModal v-model="modals.label" />
   <LocationCreateModal v-model="modals.location" />
 
-  <div class="bg-neutral absolute shadow-xl top-0 h-[20rem] max-h-96 -z-10 w-full"></div>
+  <div
+    class="bg-neutral absolute shadow-xl top-0 h-[20rem] max-h-96 -z-10 w-full"
+  ></div>
 
   <BaseContainer cmp="header" class="py-6 max-w-none">
     <BaseContainer>
       <NuxtLink to="/home">
-        <h2 class="mt-1 text-4xl font-bold tracking-tight text-neutral-content sm:text-5xl lg:text-6xl flex">
+        <h2
+          class="mt-1 text-4xl font-bold tracking-tight text-neutral-content sm:text-5xl lg:text-6xl flex"
+        >
           HomeB
           <AppLogo class="w-12 -mb-4" />
           x
@@ -98,7 +102,7 @@
           >
             {{ link.name }}
           </button>
-          <span v-if="!link.last" :key="link.name"> / </span>
+          <span v-if="!link.last" :key="link.name">/</span>
         </template>
       </div>
       <div class="flex mt-6">
@@ -109,7 +113,10 @@
             </span>
             Create
           </label>
-          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <ul
+            tabindex="0"
+            class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
             <li v-for="btn in dropdown" :key="btn.name">
               <button @click="btn.action">
                 {{ btn.name }}

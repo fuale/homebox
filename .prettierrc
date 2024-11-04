@@ -1,0 +1,9 @@
+{
+    "semi": false,
+    "arrowParens": "avoid",
+    "printWidth": 80,
+    "jsxSingleQuote": false,
+    "vueIndentScriptAndStyle": false,
+    "trailingComma": "all",
+    "htmlWhitespaceSensitivity": "ignore"
+}

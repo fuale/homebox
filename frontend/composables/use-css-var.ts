@@ -1,4 +1,4 @@
-type ColorType = "hsla";
+type ColorType = "oklch";
 
 export type VarOptions = {
   type: ColorType;
@@ -91,7 +91,7 @@ class ThemeObserver {
 export function useCssVar(name: string, options?: VarOptions) {
   if (!options) {
     options = {
-      type: "hsla",
+      type: "oklch",
       transparency: 1,
       apply: undefined,
     };
@@ -108,18 +108,18 @@ export function useCssVar(name: string, options?: VarOptions) {
   });
 
   switch (options.type) {
-    case "hsla": {
+    case "oklch": {
       return computed(() => {
         if (!document) {
           return "";
         }
 
-        let val = cssVal.value.trim().split(" ").join(", ");
+        let val = cssVal.value.trim().split(" ").join(" ");
         if (options?.transparency) {
-          val += `, ${options.transparency}`;
+          val += `/ ${options.transparency}`;
         }
 
-        return `hsla(${val})`;
+        return `oklch(${val})`;
       });
     }
   }

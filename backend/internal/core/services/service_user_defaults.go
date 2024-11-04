@@ -5,53 +5,9 @@ import (
 )
 
 func defaultLocations() []repo.LocationCreate {
-	return []repo.LocationCreate{
-		{
-			Name: "Living Room",
-		},
-		{
-			Name: "Garage",
-		},
-		{
-			Name: "Kitchen",
-		},
-		{
-			Name: "Bedroom",
-		},
-		{
-			Name: "Bathroom",
-		},
-		{
-			Name: "Office",
-		},
-		{
-			Name: "Attic",
-		},
-		{
-			Name: "Basement",
-		},
-	}
+	return []repo.LocationCreate{}
 }
 
 func defaultLabels() []repo.LabelCreate {
-	return []repo.LabelCreate{
-		{
-			Name: "Appliances",
-		},
-		{
-			Name: "IOT",
-		},
-		{
-			Name: "Electronics",
-		},
-		{
-			Name: "Servers",
-		},
-		{
-			Name: "General",
-		},
-		{
-			Name: "Important",
-		},
-	}
+	return []repo.LabelCreate{}
 }

@@ -1,43 +1,18 @@
 <script lang="ts" setup>
-  // https://stackoverflow.com/questions/36721830/convert-hsl-to-rgb-and-hex
-  function hslToHex(h: number, s: number, l: number) {
-    l /= 100;
-    const a = (s * Math.min(l, 1 - l)) / 100;
-    const f = (n: number) => {
-      const k = (n + h / 30) % 12;
-      const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-      return Math.round(255 * color)
-        .toString(16)
-        .padStart(2, "0"); // convert to Hex and prefix "0" if needed
-    };
-    return `#${f(0)}${f(8)}${f(4)}`;
-  }
-
-  function unstring(value: string): [number, number, number] {
-    const [h, s, l] = value
-      .replace("hsla(", "")
-      .replace(")", "")
-      .replace(/%/g, "")
-      .split(",")
-      .map(v => v.trim());
-
-    return [Number(h), Number(s), Number(l)];
-  }
-
   const primary = useCssVar("--p");
-  const primaryHex = computed(() => hslToHex(...unstring(primary.value)));
+  const primaryHex = computed(() => primary.value);
 
   const secondary = useCssVar("--s");
-  const secondaryHex = computed(() => hslToHex(...unstring(secondary.value)));
+  const secondaryHex = computed(() => secondary.value);
 
   const accent = useCssVar("--a");
-  const accentHex = computed(() => hslToHex(...unstring(accent.value)));
+  const accentHex = computed(() => accent.value);
 
   const neutral = useCssVar("--n");
-  const neutralHex = computed(() => hslToHex(...unstring(neutral.value)));
+  const neutralHex = computed(() => neutral.value);
 
   const base100 = useCssVar("--b1");
-  const base100Hex = computed(() => hslToHex(...unstring(base100.value)));
+  const base100Hex = computed(() => base100.value);
 </script>
 <template>
   <svg viewBox="0 0 1440 237" role="img" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">

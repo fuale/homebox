@@ -1,11 +1,11 @@
 <template>
   <div class="dropdown dropdown-left">
     <slot>
-      <label tabindex="0" class="btn btn-circle btn-sm">
+      <label tabindex="0" class="btn btn-neutral join-item btn-sm">
         <MdiQrcode />
       </label>
     </slot>
-    <div tabindex="0" class="card compact dropdown-content shadow-lg bg-base-100 rounded-box w-64">
+    <div tabindex="0" class="card compact dropdown-content z-[1] shadow-lg bg-base-100 rounded-box w-64">
       <div class="card-body">
         <h2 class="text-center">Page URL</h2>
         <img :src="getQRCodeUrl()" />

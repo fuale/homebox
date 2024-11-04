@@ -2,17 +2,19 @@ module.exports = {
   content: ["./app.vue", "./{components,pages,layouts}/**/*.{vue,js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+
+    },
   },
   daisyui: {
     themes: [
       {
         homebox: {
-          primary: "#5C7F67",
+          primary: "#577360",
           secondary: "#ECF4E7",
           accent: "#FFDA56",
           neutral: "#2C2E27",
-          "base-100": "#FFFFFF",
+          "base-100": "#f2f2f2",
           info: "#3ABFF8",
           success: "#36D399",
           warning: "#FBBD23",

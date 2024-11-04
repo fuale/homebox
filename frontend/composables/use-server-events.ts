@@ -18,7 +18,10 @@ function connect(onmessage: (m: EventMessage) => void) {
     protocol = "wss";
   }
 
-  const ws = new WebSocket(`${protocol}://${window.location.host}/api/v1/ws/events`);
+  const host = import.meta.env.DEV ? "localhost" : window.location.host
+  const port = import.meta.env.DEV ? ":7745" : ""
+
+  const ws = new WebSocket(`${protocol}://${host}${port}/api/v1/ws/events`);
 
   ws.onopen = () => {
     console.debug("connected to server");

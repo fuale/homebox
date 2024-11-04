@@ -150,6 +150,12 @@
     "name": "Belarusian Ruble"
   },
   {
+    "code": "RUB",
+    "local": "Russia",
+    "symbol": "₽",
+    "name": "Russian Ruble"
+  },
+  {
     "code": "BZD",
     "local": "Belize",
     "symbol": "BZ$",

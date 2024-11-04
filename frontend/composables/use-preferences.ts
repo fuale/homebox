@@ -8,6 +8,7 @@ export type LocationViewPreferences = {
   showEmpty: boolean;
   editorAdvancedView: boolean;
   itemDisplayView: ViewType;
+  itemDisplayMore: boolean;
   theme: DaisyTheme;
 };
 
@@ -23,6 +24,7 @@ export function useViewPreferences(): Ref<LocationViewPreferences> {
       showEmpty: true,
       editorAdvancedView: false,
       itemDisplayView: "card",
+      itemDisplayMore: false,
       theme: "homebox",
     },
     { mergeDefaults: true }

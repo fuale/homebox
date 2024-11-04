@@ -211,11 +211,11 @@
         />
       </div>
       <div class="flex">
-        <div class="btn-group">
-          <button class="btn btn-sm" :class="`${scheduled ? 'btn-active' : ''}`" @click="scheduled = true">
+        <div class="join">
+          <button class="btn join-item btn-sm" :class="`${scheduled ? 'btn-active' : ''}`" @click="scheduled = true">
             Scheduled
           </button>
-          <button class="btn btn-sm" :class="`${scheduled ? '' : 'btn-active'}`" @click="scheduled = false">
+          <button class="btn join-item btn-sm" :class="`${scheduled ? '' : 'btn-active'}`" @click="scheduled = false">
             Completed
           </button>
         </div>

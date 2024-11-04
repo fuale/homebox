@@ -59,7 +59,7 @@
 
   // Sync Initial Currency
   watch(group, () => {
-    if (!group.value) {
+    if (!group.value || !currencies.value) {
       return;
     }
 
