@@ -5,17 +5,17 @@ on:
     branches:
       - main
 
-env:
-  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+# env:
+  # FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 jobs:
-  deploy:
-    name: "Deploy Nightly to Fly.io"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+  # deploy:
+  #   name: "Deploy Nightly to Fly.io"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: superfly/flyctl-actions/setup-flyctl@master
+  #     - run: flyctl deploy --remote-only
 
   publish-nightly:
     name: "Publish Nightly"
