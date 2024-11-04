@@ -27,7 +27,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
     -o /go/bin/api \
     -v ./app/api/*.go
 
-# Production Stage
+# Production Stage.
 FROM alpine:latest
 
 ENV HBOX_MODE=production
